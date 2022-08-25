@@ -1,0 +1,36 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.183.0/containers/ubuntu
+{
+	"name": "ESP-IDF for GTest",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"runArgs": [
+		"--privileged",
+		"--device=/dev/ttyUSB0"
+	],
+	"settings": {
+		"terminal.integrated.defaultProfile.linux": "bash",
+		"idf.espIdfPath": "/opt/esp/idf",
+		"idf.customExtraPaths": "",
+		"idf.pythonBinPath": "/opt/esp/python_env/idf4.3_py3.6_env/bin/python",
+		"idf.toolsPath": "/opt/esp",
+		"idf.gitPath": "/usr/bin/git",
+		"clang-format.executable": "/usr/bin/clang-format",
+		"[cpp]": {
+			"editor.defaultFormatter": "ms-vscode.cpptools"
+		},
+		"[c]": {
+			"editor.defaultFormatter": "ms-vscode.cpptools"
+		},
+		"files.associations": {
+			"*.h": "cpp"
+		},
+		"editor.formatOnSave": true
+	},
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-vscode.cpptools",
+		"espressif.esp-idf-extension"
+	]
+}

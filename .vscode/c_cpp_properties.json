@@ -1,0 +1,53 @@
+{
+    "configurations": [
+        {
+            "name": "ESP-IDF",
+            "compilerPath": "/home/neal/.espressif/tools/xtensa-esp32s3-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32s3-elf/bin/xtensa-esp32s3-elf-gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "includePath": [
+                "${config:idf.espIdfPath}/components/**",
+                "${config:idf.espIdfPathWin}/components/**",
+                "${config:idf.espAdfPath}/components/**",
+                "${config:idf.espAdfPathWin}/components/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "path": [
+                    "${config:idf.espIdfPath}/components",
+                    "${config:idf.espIdfPathWin}/components",
+                    "${config:idf.espAdfPath}/components/**",
+                    "${config:idf.espAdfPathWin}/components/**",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        }
+        // {
+        //     "name": "Linux",
+        //     "includePath": [
+        //         "${config:idf.espIdfPath}/components/**",
+        //         "${workspaceFolder}/build/**",
+        //         "${workspaceFolder}/**"
+        //     ],
+        //     "browse": {
+        //         "path": [
+        //             "${config:idf.espIdfPath}/components",
+        //             "${config:idf.espIdfPath}/components/esp_system/include",
+        //             "${workspaceFolder}/build",
+        //             "${workspaceFolder}"
+        //         ],
+        //         "limitSymbolsToIncludedHeaders": false
+        //     },
+        //     "defines": [],
+        //     "compilerPath": "/usr/bin/g++",
+        //     "cStandard": "c11",
+        //     "cppStandard": "c++17",
+        //     "intelliSenseMode": "clang-x64",
+        //     "configurationProvider": "ms-vscode.cmake-tools"
+        // }
+    ],
+    "version": 4
+}

@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Tests Nativ",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/unit_tests/build/unit_tests",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "preLaunchTask": "Build Tests (nativ)",
+      "setupCommands": [
+          {
+              "description": "Automatische Strukturierung und Einrückung für \"gdb\" aktivieren",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          },
+          {
+              "description":  "Disassemblierungsvariante auf Intel festlegen",
+              "text": "-gdb-set disassembly-flavor intel",
+              "ignoreFailures": true
+          }
+      ]
+    },
+    {
+      "type": "espidf",
+      "name": "Launch",
+      "request": "launch"
+    }
+  ]
+}
