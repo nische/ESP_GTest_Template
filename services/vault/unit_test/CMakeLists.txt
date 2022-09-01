@@ -1,2 +1,0 @@
-add_library(VaultService_tests STATIC Vault.test.cpp)
-target_link_libraries(VaultService_tests PRIVATE gtest)

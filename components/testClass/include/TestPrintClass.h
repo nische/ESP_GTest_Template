@@ -4,9 +4,9 @@
 class TestPrintClass
 {
 public:
-    TestPrintClass(/* args */);
-    ~TestPrintClass();
-    std::string GetRevisionText() { return ""; }
+    TestPrintClass(/* args */){};
+    ~TestPrintClass(){};
+    std::string GetTestString();
 
 private:
 };

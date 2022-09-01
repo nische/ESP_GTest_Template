@@ -4,7 +4,7 @@
         {
             "label": "Build - Build project",
             "type": "shell",
-            "command": "${config:idf.pythonBinPath} ${config:idf.espIdfPath}/tools/idf.py build -DRunTesting:BOOL=ON",
+            "command": "${config:idf.pythonBinPath} ${config:idf.espIdfPath}/tools/idf.py build",
             "windows": {
                 "command": "${config:idf.pythonBinPathWin} ${config:idf.espIdfPathWin}\\tools\\idf.py build",
                 "options": {

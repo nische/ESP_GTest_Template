@@ -1,6 +1,16 @@
 #include "gtest/gtest.h"
+#include "../include/TestPrintClass.h"
 
-TEST(sample_test_case, sample_test)
+class TestPrintClassFixture : public testing::Test
 {
-    EXPECT_EQ(1, 0);
+public:
+    TestPrintClassFixture() {}
+    ~TestPrintClassFixture() {}
+
+    TestPrintClass sut;
+};
+
+TEST_F(TestPrintClassFixture, GetTestString_TestToFail_ReturnNotSameAsExpected)
+{
+    EXPECT_EQ("Wrong", sut.GetTestString());
 }

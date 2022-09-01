@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.5)
-
 project(unit_tests)
 
 set(RunTesting)
 
 #https://github.com/espressif/esp-idf/blob/master/tools/cmake/scripts/component_get_requirements.cmake
+#TODO: Add all reg componet libs to global var and link it to unit_tests
 function(idf_component_register)
     get_filename_component(__name "${CMAKE_CURRENT_LIST_DIR}" NAME)
     message(STATUS "idf_component_register (for nativ): ${__name}")
@@ -29,12 +29,12 @@ function(idf_component_register)
     return()
 endfunction()
 
+#TODO: add all comonents with cmake files
 add_subdirectory(../components/googletest ./components/googletest)
-#add_subdirectory(../components/idf_cpp_wrapper ./components/idf_cpp_wrapper)
-# add_subdirectory(../main/ ./main/)
-# include_directories("/workspaces/SmartGreehouse/components/googletest/libs/googletest/googletest/include;/workspaces/SmartGreehouse/components/googletest/libs/googletest/googletest/")
+add_subdirectory(../components/testClass ./components/testClass)
 
-file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false "../services/*.test.cpp")
+
+file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false "../components/*.test.cpp")
 
 add_executable(unit_tests testrunner.cpp ${TEST_SOURCES})
-target_link_libraries(unit_tests PUBLIC googletest)
+target_link_libraries(unit_tests PUBLIC googletest testClass)

@@ -1,5 +1,6 @@
 #include "TestPrintClass.h"
 
-TestPrintClass::TestPrintClass(/* args */)
+std::string TestPrintClass::GetTestString()
 {
+    return "Test42";
 }
