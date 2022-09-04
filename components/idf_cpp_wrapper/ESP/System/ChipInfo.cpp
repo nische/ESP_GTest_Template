@@ -7,10 +7,10 @@ namespace System
         esp_chip_info(&_info);
     }
 
-    esp_chip_model_t ChipInfo::GetModel()
-    {
-        return _info.model;
-    }
+    // esp_chip_model_t ChipInfo::GetModel()
+    // {
+    //     return _info.model;
+    // }
     uint32_t ChipInfo::GetFeatureBitMask()
     {
         return _info.features;
