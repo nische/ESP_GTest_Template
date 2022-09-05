@@ -24,30 +24,30 @@
             },
             "configurationProvider": "ms-vscode.cmake-tools",
             "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "${config:idf.espIdfPath}/components/**",
+                "${workspaceFolder}/build/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "path": [
+                    "${config:idf.espIdfPath}/components",
+                    "${config:idf.espIdfPath}/components/esp_system/include",
+                    "${workspaceFolder}/build",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
-        // {
-        //     "name": "Linux",
-        //     "includePath": [
-        //         "${config:idf.espIdfPath}/components/**",
-        //         "${workspaceFolder}/build/**",
-        //         "${workspaceFolder}/**"
-        //     ],
-        //     "browse": {
-        //         "path": [
-        //             "${config:idf.espIdfPath}/components",
-        //             "${config:idf.espIdfPath}/components/esp_system/include",
-        //             "${workspaceFolder}/build",
-        //             "${workspaceFolder}"
-        //         ],
-        //         "limitSymbolsToIncludedHeaders": false
-        //     },
-        //     "defines": [],
-        //     "compilerPath": "/usr/bin/g++",
-        //     "cStandard": "c11",
-        //     "cppStandard": "c++17",
-        //     "intelliSenseMode": "clang-x64",
-        //     "configurationProvider": "ms-vscode.cmake-tools"
-        // }
     ],
     "version": 4
 }
