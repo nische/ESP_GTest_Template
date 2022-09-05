@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <memory>
-#include "../../idf_cpp_wrapper/Interfaces/System/IChipInfo.h"
+#include "IChipInfo.h"
 
 class TestPrintClass
 {

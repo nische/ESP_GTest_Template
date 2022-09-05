@@ -8,7 +8,7 @@ namespace System
     public:
         ChipInfo();
         // ~ChipInfo();
-        // esp_chip_model_t GetModel() override;
+        esp_chip_model_t GetModel() override;
         uint32_t GetFeatureBitMask() override;
         uint8_t GetNumberOfCores() override;
         uint8_t GetRevision() override;

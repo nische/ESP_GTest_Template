@@ -3,6 +3,7 @@ project(unit_tests)
 
 set(RunTesting TRUE) #Need to set if you want to build the Mocks in idf_cpp_wrapper
 
+#Override esp-idf idf_component_register function
 #https://github.com/espressif/esp-idf/blob/master/tools/cmake/scripts/component_get_requirements.cmake
 function(idf_component_register)
     get_filename_component(__name "${CMAKE_CURRENT_LIST_DIR}" NAME)
@@ -20,8 +21,8 @@ function(idf_component_register)
     include_directories(${__INCLUDE_DIRS})
     add_library(${__name} STATIC ${__SRCS})
     target_link_libraries(${__name} PUBLIC ${__REQUIRES})
-    target_link_libraries(${__name} PRIVATE ${PRIV_REQUIRES})
-    #target_include_directories(${__name} INTERFACE ${__INCLUDE_DIRS}) TODO: Need to look whats better
+    target_link_libraries(${__name} PRIVATE gtest gmock ${PRIV_REQUIRES})
+    #target_include_directories(${__name} INTERFACE ${__INCLUDE_DIRS}) TODO: Need to look what is better
     target_include_directories(${__name} PUBLIC ${__INCLUDE_DIRS})
 
     GET_PROPERTY(extra_libs GLOBAL PROPERTY EXTRA_LIBS)
@@ -31,12 +32,26 @@ function(idf_component_register)
     return()
 endfunction()
 
+# Add googletest
+add_subdirectory(./lib/googletest)
+
+#Add fake sdkconfig.h -> Needed for IDF-Header 
+message(STATUS "Include Fake sdkconfig from ${CMAKE_CURRENT_LIST_DIR}/include. Maybe use real one?")
+include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
+
+# Add esp-idf header
+file(GLOB IDF_HEADER_DIRS LIST_DIRECTORIES true "$ENV{IDF_PATH}/components/*/include/")
+foreach(ENTRY IN LISTS IDF_HEADER_DIRS)  
+    message(STATUS "Include IDF Component Includedir: ${ENTRY}")
+    include_directories(${ENTRY})
+endforeach()
+
 # Search all Componets and add as Subdirectory:
 file(GLOB COMPONENT_DIRS LIST_DIRECTORIES true "../components/*/CMakeLists.txt")
 foreach(ENTRY IN LISTS COMPONENT_DIRS)  
     get_filename_component(dir "${ENTRY}" PATH)
     get_filename_component(comp "${dir}" NAME) 
-    message(STATUS "Include ${comp} in ./components/${comp}")
+    message(STATUS "Include ${comp} Componeten in temp dir: ./components/${comp}")
     add_subdirectory(${dir} ./components/${comp})
 endforeach()
 
@@ -47,7 +62,6 @@ GET_PROPERTY(extra_libs GLOBAL PROPERTY EXTRA_LIBS)
 #Get all Testfiles:
 file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES true "../components/*.test.cpp")
 
-
 #Build Executable and link libs:
 add_executable(unit_tests testrunner.cpp ${TEST_SOURCES})
-target_link_libraries(unit_tests PUBLIC ${extra_libs})
+target_link_libraries(unit_tests PUBLIC pthread gtest gmock ${extra_libs})

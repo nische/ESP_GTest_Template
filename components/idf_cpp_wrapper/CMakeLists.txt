@@ -4,7 +4,10 @@ message( STATUS "BuildMocks" )
         "Mocks/System/ChipInfoMock.h"
     )
     set(req
-       # "googletest"
+       
+    )
+    set(inc
+        
     )
 else()
     message(STATUS "DontBuildMocks")
