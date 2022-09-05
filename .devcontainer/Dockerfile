@@ -31,6 +31,8 @@ ENV PATH=/opt/qemu/bin:${PATH}
 
 RUN echo $($IDF_PATH/tools/idf_tools.py export) >> $HOME/.bashrc
 
+RUN apt install gdb
+
 ENTRYPOINT [ "/opt/esp/entrypoint.sh" ]
 
 CMD ["/bin/bash"]
