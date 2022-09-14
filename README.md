@@ -4,16 +4,15 @@ To make this happend I add some C++-Wrapper and Mocks for ESP Components.
 You can use the Mocks for the IDF Components to develop other Classes/Components.
 
 Here are some Links that helped me:
-
+[Kevins Video to use Catch2 with ESP on nativ](https://www.youtube.com/watch?v=V6vBg4kfLnQ)
+[GTest Guid](https://google.github.io/googletest/)
+[ESP Build System Guid](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-guides/build-system.html?highlight=build%20system#cmake-components-same-name)
+[ESP-IDF Repo CmakeTools](https://github.com/espressif/esp-idf/blob/master/tools/cmake/)
+[Introduction to Google Test and CMake Video](https://www.youtube.com/watch?v=Lp1ifh9TuFI)
 
 Please take a look on the 
 
 I still work on this but only at late nigth. 
-
-[ ] Start wrapping some usefull Components
-[ ] Fix Documentation
-[ ] Add ExampleTest with Mock Calls
-
 
 # Gettin Started
 Use the Template to start a ESP nativ Project.
