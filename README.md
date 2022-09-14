@@ -3,6 +3,8 @@ You can develop your Code with unittests on Linux.
 To make this happend I add some C++-Wrapper and Mocks for ESP Components.
 You can use the Mocks for the IDF Components to develop other Classes/Components.
 
+I still work on this but only at late nigth. 
+
 ## Links
 
 [Kevins Video to use Catch2 with ESP on nativ](https://www.youtube.com/watch?v=V6vBg4kfLnQ)
@@ -14,10 +16,6 @@ You can use the Mocks for the IDF Components to develop other Classes/Components
 [ESP-IDF Repo CmakeTools](https://github.com/espressif/esp-idf/blob/master/tools/cmake/)
 
 [Introduction to Google Test and CMake Video](https://www.youtube.com/watch?v=Lp1ifh9TuFI)
-
-Please take a look on the 
-
-I still work on this but only at late nigth. 
 
 # Gettin Started
 Use the Template to start a ESP nativ Project.
