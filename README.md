@@ -91,6 +91,11 @@ https://github.com/dorssel/usbipd-win
 In case that the USB Driver is Linked in Linux but there is no ttyUSB... Maybe the support for these chip is deactived in Kernel.
 -> You need to build a new WSL Kernel and update this. (No big deal)
 https://askubuntu.com/questions/1373910/ch340-serial-device-doesnt-appear-in-dev-wsl/
+## Troubelshooting (VSC)
+### Intellisens not working
+Intellsins only work with running CMake Config and a proper C_CPP_CONFURATION.
+
+[Helpfull Link.. maybe](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/C_CPP_CONFIGURATION.md#configuration-with-compile_commandsjson)
 
 ## Technical support and feedback
 I will add wrapped IDF Componentes if i need them. 
