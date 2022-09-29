@@ -1,15 +1,29 @@
 # Template for GoogleTest/Mock with ESP-IDF
-Started Project to work with Google Test, ESP-IDF and nativ in a devcontainer.
+You can develop your Code with unittests on Linux. 
+To make this happend I add some C++-Wrapper and Mocks for ESP Components.
+You can use the Mocks for the IDF Components to develop other Classes/Components.
 
 I still work on this but only at late nigth. 
 
-[ ] Start wrapping some usefull Components
-[ ] Fix Documentation
-[ ] Add ExampleTest with Mock Calls
+## Links
 
+[Kevins Video to use Catch2 with ESP on nativ](https://www.youtube.com/watch?v=V6vBg4kfLnQ)
+
+[GTest Guid](https://google.github.io/googletest/)
+
+[ESP Build System Guid](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-guides/build-system.html?highlight=build%20system#cmake-components-same-name)
+
+[ESP-IDF Repo CmakeTools](https://github.com/espressif/esp-idf/blob/master/tools/cmake/)
+
+[Introduction to Google Test and CMake Video](https://www.youtube.com/watch?v=Lp1ifh9TuFI)
 
 # Gettin Started
-If needed -> Issue 
+Use the Template to start a ESP nativ Project.
+After the dev container is running you need to install gdb (apt install gdb)
+
+Take a look at the "components/testClass" Folder to see how the tests and the Component need to use.
+The TestPrintClass use the IDF System Component to print the Hello World example from ESP.
+Take a look on the "app.cpp", there will the TestPrintClass will be used with the real IDF-Component
 
 ## Use Nativ
 To Build the Tests on Linux there are a few Tasks:
@@ -67,19 +81,24 @@ The CMakeLists files build Mocks or target code by the "RunTests"-Flag.
 
 For more info take a look in the "idf_cpp_wrapper"-Folder/CMakeLists.txt or ask me in an Issue.
 
-## Troubleshooting
-### ESP not found in Devcontainer (Windows)
-__WIP If needed faster -> Issue__
+## Troubleshooting (Windows)
+### ESP not found in Devcontainer
+If WSL/Docker cant find the USB Driver (on connect dont get message with USB Things with dmsg | grep *usb*) 
 usbipd for windows:
 https://devblogs.microsoft.com/commandline/connecting-usb-devices-to-wsl/
 https://github.com/dorssel/usbipd-win
 ### USB<-> Serial Chip not deteced as tty in Devcontainer
-__WIP If needed faster -> Issue__
-WSL Kernel Update needed
+In case that the USB Driver is Linked in Linux but there is no ttyUSB... Maybe the support for these chip is deactived in Kernel.
+-> You need to build a new WSL Kernel and update this. (No big deal)
 https://askubuntu.com/questions/1373910/ch340-serial-device-doesnt-appear-in-dev-wsl/
+## Troubelshooting (VSC)
+### Intellisens not working
+Intellsins only work with running CMake Config and a proper C_CPP_CONFURATION.
+
+[Helpfull Link.. maybe](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/C_CPP_CONFIGURATION.md#configuration-with-compile_commandsjson)
 
 ## Technical support and feedback
 I will add wrapped IDF Componentes if i need them. 
-In the futur i want to use the KConfig Flags from "idf.py menuconfig" to build wrapper too. 
+In the futur i want to use the KConfig Flags from "idf.py menuconfig" to build special wrapper too. (Maybee will never happen)
 
 Feel free to add an Issue for needed Componet and/or implement them.
