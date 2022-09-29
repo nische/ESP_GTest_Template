@@ -16,5 +16,10 @@ namespace System
         MOCK_METHOD(uint8_t, GetNumberOfCores, (), (override));
         // virtual uint8_t GetRevision() = 0;
         MOCK_METHOD(uint8_t, GetRevision, (), (override));
+
+        MOCK_METHOD(bool, HasEmbeddedFlash, (), (override));
+        MOCK_METHOD(bool, HasWifi2_4, (), (override));
+        MOCK_METHOD(bool, HasBLE, (), (override));
+        MOCK_METHOD(bool, HasBluetoth, (), (override));
     };
 }
